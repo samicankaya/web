@@ -325,208 +325,194 @@ button.addEventListener('click', function () {
         </div>
 
     </div>
-</section>
 <!-- Footer Menü -->
 <section class="bg-[#f7f2e8] py-10 sm:py-12 border-t border-b border-gray-200">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+
+        <!-- ================== MASAÜSTÜ ================== -->
+        <div class="hidden md:grid md:grid-cols-5 gap-8">
 
             <!-- Kategoriler -->
-            <!-- Desktop -->
-<div class="hidden md:block">
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
 
-    <h3 class="text-primary font-semibold mb-4">
-        Kategoriler
-    </h3>
-
-    <ul class="space-y-2 text-sm">
-        <li><a href="#">Dondurmalar</a></li>
-        <li><a href="#">Tatlılar</a></li>
-        <li><a href="#">Börekler</a></li>
-    </ul>
-
-</div>
-
-<!-- Mobil -->
-<details class="md:hidden border-b py-3">
-
-    <summary class="cursor-pointer font-semibold text-primary">
-        Kategoriler
-    </summary>
-
-    <ul class="mt-3 space-y-2 text-sm">
-
-        <li><a href="#">Dondurmalar</a></li>
-
-        <li><a href="#">Tatlılar</a></li>
-
-        <li><a href="#">Börekler</a></li>
-
-    </ul>
-
-</details>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
+                    <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
+                    <li><a href="#" class="hover:text-primary">Börekler</a></li>
+                </ul>
+            </div>
 
             <!-- Önemli Bilgiler -->
-            <details class="md:hidden border-b py-3">
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
 
-<summary class="cursor-pointer text-primary font-semibold">
-
-Önemli Bilgiler
-
-</summary>
-
-<ul class="mt-3 space-y-2 text-sm">
-
-<li>Teslimat Koşulları</li>
-
-<li>Üyelik Sözleşmesi</li>
-
-<li>Satış Sözleşmesi</li>
-
-<li>Garanti ve İade Koşulları</li>
-
-<li>Gizlilik ve Güvenlik</li>
-
-</ul>
-
-</details>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
+                    <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
+                    <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
+                    <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
+                    <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
+                </ul>
+            </div>
 
             <!-- Hızlı Erişim -->
-            <details class="md:hidden border-b py-3">
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
 
-<summary class="cursor-pointer text-primary font-semibold">
-
-Hızlı Erişim
-
-</summary>
-
-<ul class="mt-3 space-y-2 text-sm">
-
-<li>Anasayfa</li>
-
-<li>Yeni Ürünler</li>
-
-<li>İletişim</li>
-
-<li>İndirimdekiler</li>
-
-<li>Sepetim</li>
-
-</ul>
-
-</details>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
+                    <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
+                    <li><a href="#" class="hover:text-primary">İletişim</a></li>
+                    <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
+                    <li><a href="#" class="hover:text-primary">Sepetim</a></li>
+                </ul>
+            </div>
 
             <!-- Üye -->
-            <details class="md:hidden border-b py-3">
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Üye</h3>
 
-<summary class="cursor-pointer text-primary font-semibold">
-
-Üye
-
-</summary>
-
-<ul class="mt-3 space-y-2 text-sm">
-
-<li>Yeni Üyelik</li>
-
-<li>Üye Girişi</li>
-
-</ul>
-
-</details>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
+                    <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
+                </ul>
+            </div>
 
             <!-- E-Bülten -->
-           <!-- Masaüstü -->
-<div class="hidden md:block">
+            <div>
+                <h3 class="text-primary font-semibold mb-4 uppercase">
+                    E-Bülten Aboneliği
+                </h3>
 
-    <h3 class="text-primary font-semibold mb-4 uppercase">
-        E-Bülten Aboneliği
-    </h3>
+                <p class="text-sm text-gray-700 mb-4">
+                    Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.
+                </p>
 
-    <p class="text-sm text-gray-700 mb-4">
-        Kampanya ve yeniliklerden haberdar olmak için
-        e-bültenimize kayıt olun.
-    </p>
+                <div class="flex overflow-hidden border border-gray-300 rounded">
+                    <input
+                        type="email"
+                        placeholder="E-posta adresinizi giriniz."
+                        class="flex-1 px-3 py-2 text-sm outline-none">
 
-    <div class="flex overflow-hidden border border-gray-300 rounded">
-        <input
-            type="email"
-            placeholder="E-posta adresinizi giriniz."
-            class="flex-1 px-3 py-2 text-sm outline-none">
+                    <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
+                        ❯
+                    </button>
+                </div>
 
-        <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
-            ❯
-        </button>
-    </div>
+                <h4 class="text-primary font-semibold mt-5 mb-2">
+                    Sosyal Medya
+                </h4>
 
-    <h4 class="text-primary font-semibold mt-5 mb-2">
-        Sosyal Medya
-    </h4>
-
-    <p class="text-sm text-gray-700">
-        Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol,
-        fırsatları yakala!
-    </p>
-
-</div>
-
-<!-- Mobil -->
-<details class="md:hidden border-b py-3 group">
-
-    <summary class="flex justify-between items-center cursor-pointer list-none">
-
-        <span class="text-primary font-semibold">
-            E-Bülten Aboneliği
-        </span>
-
-        <svg class="w-5 h-5 text-primary transition-transform duration-300 group-open:rotate-180"
-             xmlns="http://www.w3.org/2000/svg"
-             fill="none"
-             viewBox="0 0 24 24"
-             stroke="currentColor">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"/>
-
-        </svg>
-
-    </summary>
-
-    <div class="mt-4">
-
-        <p class="text-sm text-gray-700 mb-4">
-            Kampanya ve yeniliklerden haberdar olmak için
-            e-bültenimize kayıt olun.
-        </p>
-
-        <div class="flex overflow-hidden border border-gray-300 rounded">
-
-            <input
-                type="email"
-                placeholder="E-posta adresinizi giriniz."
-                class="flex-1 px-3 py-2 text-sm outline-none">
-
-            <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
-                ❯
-            </button>
+                <p class="text-sm text-gray-700">
+                    Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!
+                </p>
+            </div>
 
         </div>
 
-        <h4 class="text-primary font-semibold mt-5 mb-2">
-            Sosyal Medya
-        </h4>
+        <!-- ================== MOBİL ================== -->
+        <div class="md:hidden">
 
-        <p class="text-sm text-gray-700">
-            Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol,
-            fırsatları yakala!
-        </p>
+            <details class="border-b py-3">
+                <summary class="cursor-pointer font-semibold text-primary">Kategoriler</summary>
+
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="#">Dondurmalar</a></li>
+                    <li><a href="#">Tatlılar</a></li>
+                    <li><a href="#">Börekler</a></li>
+                </ul>
+            </details>
+
+            <details class="border-b py-3">
+                <summary class="cursor-pointer font-semibold text-primary">Önemli Bilgiler</summary>
+
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li>Teslimat Koşulları</li>
+                    <li>Üyelik Sözleşmesi</li>
+                    <li>Satış Sözleşmesi</li>
+                    <li>Garanti ve İade Koşulları</li>
+                    <li>Gizlilik ve Güvenlik</li>
+                </ul>
+            </details>
+
+            <details class="border-b py-3">
+                <summary class="cursor-pointer font-semibold text-primary">Hızlı Erişim</summary>
+
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li>Anasayfa</li>
+                    <li>Yeni Ürünler</li>
+                    <li>İletişim</li>
+                    <li>İndirimdekiler</li>
+                    <li>Sepetim</li>
+                </ul>
+            </details>
+
+            <details class="border-b py-3">
+                <summary class="cursor-pointer font-semibold text-primary">Üye</summary>
+
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li>Yeni Üyelik</li>
+                    <li>Üye Girişi</li>
+                </ul>
+            </details>
+
+            <details class="border-b py-3 group">
+
+                <summary class="flex justify-between items-center cursor-pointer list-none">
+
+                    <span class="text-primary font-semibold">
+                        E-Bülten Aboneliği
+                    </span>
+
+                    <svg class="w-5 h-5 transition-transform group-open:rotate-180"
+                         fill="none"
+                         stroke="currentColor"
+                         viewBox="0 0 24 24">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"/>
+                    </svg>
+
+                </summary>
+
+                <div class="mt-4">
+
+                    <p class="text-sm text-gray-700 mb-4">
+                        Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.
+                    </p>
+
+                    <div class="flex overflow-hidden border border-gray-300 rounded">
+
+                        <input
+                            type="email"
+                            placeholder="E-posta adresinizi giriniz."
+                            class="flex-1 px-3 py-2 text-sm outline-none">
+
+                        <button class="bg-primary text-white px-5">
+                            ❯
+                        </button>
+
+                    </div>
+
+                    <h4 class="text-primary font-semibold mt-5 mb-2">
+                        Sosyal Medya
+                    </h4>
+
+                    <p class="text-sm text-gray-700">
+                        Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!
+                    </p>
+
+                </div>
+
+            </details>
+
+        </div>
 
     </div>
-
-</details>
-
+</section>
         </div>
     </div>
 </section>
