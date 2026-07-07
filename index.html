@@ -36,22 +36,38 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Merriweather', serif;
         }
+        .header-logo-row {
+            grid-template-columns: minmax(0, 1fr) clamp(4.875rem, 26vw, 6.0625rem) minmax(0, 1fr);
+        }
+        .header-logo-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        @media (min-width: 640px) {
+            .header-logo-row {
+                grid-template-columns: minmax(0, 1fr) clamp(7.5rem, 18vw, 8.875rem) minmax(0, 1fr);
+            }
+        }
+        @media (max-width: 639px) {
+            .header-brand {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
 
     <!-- Top Bar -->
-    <div class="bg-gray-100 border-b border-gray-200 text-sm text-gray-600 py-2">
-        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
-            <div class="mb-2 sm:mb-0 opacity-0">.</div>
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-primary transition-colors duration-300">Üye Girişi</a>
-                <a href="#" class="hover:text-primary transition-colors duration-300">Üye Ol</a>
+    <div class="bg-gray-100 border-b border-gray-200 text-xs sm:text-sm text-gray-600 py-1.5 sm:py-2">
+        <div class="container mx-auto px-4 flex justify-center sm:justify-end items-center">
+            <div class="flex items-center">
                 <div class="flex items-center group cursor-pointer">
-                    <svg class="w-5 h-5 text-primary mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-1.5 sm:mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
-                    <span class="font-medium group-hover:text-primary transition-colors duration-300">Sepet (0) - 0,00 TL</span>
+                    <span class="font-medium leading-none group-hover:text-primary transition-colors duration-300">Sepet (0) - 0,00 TL</span>
                 </div>
             </div>
         </div>
@@ -59,62 +75,142 @@
 
     <!-- Main Navigation & Header -->
     <header class="bg-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 py-8 flex justify-between items-center relative">
-            <div class="flex-1 flex items-center justify-start">
-                <span class="font-display text-2xl font-bold tracking-wide italic leading-tight">
-    <span class="text-primary">MADO Beyazı®</span><br>
-    <span class="text-secondary">Keçi Çiftliği</span>
+        <div class="header-logo-row container mx-auto px-3 sm:px-4 py-2.5 sm:py-4 grid items-center gap-3 sm:gap-4 relative">
+            <div class="min-w-0 flex items-center">
+                <span class="header-brand font-display font-bold italic leading-tight max-w-[9rem] sm:max-w-none">
+    <span class="text-primary
+                 text-sm
+                 sm:text-base
+                 md:text-lg">
+        MADO Beyazı®
+    </span>
+
+    <br>
+
+    <span class="text-secondary
+                 text-xs
+                 sm:text-sm
+                 md:text-base">
+        Keçi Çiftliği
+    </span>
 </span>
             </div>
-            
-            <div class="flex-shrink-0 absolute left-1/2 transform -translate-x-1/2">
-                <a href="#" class="flex items-center h-16">
-                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yeni-logo/MADOLOGO.png" alt="MADO Logo" class="h-full w-auto object-contain">
+            <div class="min-w-0 flex justify-center">
+    <a href="#" class="flex w-full items-center justify-center">
+
+        <img
+            src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yeni-logo/MADOLOGO.png"
+            alt="MADO Logo"
+            class="header-logo-img">
+
+    </a>
+</div>
+            <div class="min-w-0 flex justify-end">
+                
+            </div>
+        </div>
+
+ <div class="bg-gray-50 border-t border-b border-gray-100">
+    <div class="container mx-auto px-4">
+
+        <!-- Masaüstü Menü -->
+        <nav class="hidden lg:flex justify-center gap-8 xl:gap-12 py-2.5">
+            <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">TARİHÇE</a>
+            <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">DONDURMALAR</a>
+            <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">ŞERBETLİ TATLILAR</a>
+            <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">YÖRESEL SEPET</a>
+        </nav>
+
+        <!-- Mobil Menü -->
+        <div class="lg:hidden">
+
+            <button id="menuButton"
+                class="w-full flex items-center justify-between py-2 text-sm font-semibold text-gray-800">
+
+                <span>MENÜ</span>
+
+                <svg id="menuIcon" class="w-5 h-5 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+
+            </button>
+
+            <div id="mobileMenu" class="hidden pb-4">
+
+                <a href="#" class="block py-3 border-b hover:text-primary">
+                    TARİHÇE
                 </a>
+
+                <a href="#" class="block py-3 border-b hover:text-primary">
+                    DONDURMALAR
+                </a>
+
+                <a href="#" class="block py-3 border-b hover:text-primary">
+                    ŞERBETLİ TATLILAR
+                </a>
+
+                <a href="#" class="block py-3 border-b hover:text-primary">
+                    YÖRESEL SEPET
+                </a>
+
+                <a href="#" class="block py-3 border-b hover:text-primary">
+                    ÜYE GİRİŞİ
+                </a>
+
+                <a href="#" class="block py-3 hover:text-primary">
+                    ÜYE OL
+                </a>
+
             </div>
 
-            <div class="flex-1 flex justify-end">
-                <button class="lg:hidden text-gray-800 hover:text-primary">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
         </div>
 
-        <div class="bg-gray-50 border-t border-b border-gray-100">
-            <div class="container mx-auto px-4 py-4">
-                <nav class="hidden lg:flex justify-center space-x-12">
-                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">TARİHÇE</a>
-                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">DONDURMALAR</a>
-                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">ŞERBETLİ TATLILAR</a>
-                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 hover:after:w-full after:transition-all after:duration-300">YÖRESEL SEPET</a>
-                </nav>
-            </div>
-        </div>
+    </div>
+</div>
+
+<script>
+const button = document.getElementById('menuButton');
+const menu = document.getElementById('mobileMenu');
+
+button.addEventListener('click', function () {
+    menu.classList.toggle('hidden');
+});
+</script>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/int2.png')] bg-cover bg-center bg-no-repeat opacity-80 z-0"></div>
+    <section class="relative overflow-hidden bg-white">
+        <img
+            src="https://madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/int2.png"
+            alt="Yaşar Pastanesi"
+            class="block w-full h-auto opacity-80">
         <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent z-10"></div>
     </section>
 
     <!-- Tarihçe Özeti -->
-    <section class="py-24 bg-white relative border-b border-gray-200">
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative border-b border-gray-200">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="w-full md:w-1/2 relative">
-                    <div class="absolute -inset-4 bg-secondary/10 rounded-lg transform -rotate-3 z-0"></div>
-                    <div class="bg-white h-[400px] rounded-lg shadow-2xl relative z-10 border border-gray-200 flex items-center justify-center overflow-hidden group">
-                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner5.png" alt="Yaşar Pastanesi Tarihçe" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+            <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                <div class="w-full md:w-1/2 relative overflow-hidden rounded-lg">
+                    <div class="absolute inset-1 sm:inset-2 bg-secondary/10 rounded-lg transform -rotate-2 z-0"></div>
+                    <div class="bg-white h-[240px] sm:h-[300px] lg:h-[360px] rounded-lg shadow-xl relative z-10 border border-gray-200 flex items-center justify-center overflow-hidden group">
+                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner5.png" alt="Yaşar Pastanesi Tarihçe" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-all duration-700">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Hikayenin Başladığı Yer</h2>
-                    <div class="w-16 h-1 bg-secondary mb-8"></div>
-                    <p class="text-gray-700 leading-relaxed mb-6 font-light">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary">Hikayenin Başladığı Yer</h2>
+                    <div class="w-16 h-1 bg-secondary mb-6"></div>
+                    <p class="text-gray-700 leading-relaxed mb-4 font-light">
                         Yaşar Pastanesi, başta bir dünya markası olan MADO olmak üzere Marax, Marpop, Icemar, MADO Dondurma ve Künefeci gibi markaları çatısı altında bulunduran Yaşar Dondurma'nın ilk dükkanıdır.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-8 font-light">
+                    <p class="text-gray-700 leading-relaxed font-light">
                         Bu nedenle Yaşar Pastanesi, Kahramanmaraş lezzetlerinin ülkemizde ve dünyada tanınması ve sevilmesine öncülük eden markaların beşiği konumundadır.
                     </p>
                 </div>
@@ -123,24 +219,24 @@
     </section>
 
     <!-- Kanbur Kardeşlerin Başarısı -->
-    <section class="py-24 bg-gray-50 relative border-b border-gray-200">
+    <section class="py-12 sm:py-16 lg:py-20 bg-gray-50 relative border-b border-gray-200">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row-reverse items-center gap-16">
-                <div class="w-full md:w-1/2 relative">
-                    <div class="absolute -inset-4 bg-primary/10 rounded-lg transform rotate-3 z-0"></div>
-                    <div class="bg-white h-[450px] rounded-lg shadow-2xl relative z-10 border border-gray-200 flex items-center justify-center overflow-hidden group">
-                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner4.png" alt="Kanbur Kardeşler" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-12">
+                <div class="w-full md:w-1/2 relative overflow-hidden rounded-lg">
+                    <div class="absolute inset-1 sm:inset-2 bg-primary/10 rounded-lg transform rotate-2 z-0"></div>
+                    <div class="bg-white h-[260px] sm:h-[320px] lg:h-[400px] rounded-lg shadow-xl relative z-10 border border-gray-200 flex items-center justify-center overflow-hidden group">
+                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner4.png" alt="Kanbur Kardeşler" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-all duration-700">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
                     <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">1969'dan Günümüze</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Kanbur Kardeşlerin Başarısı</h2>
-                    <div class="w-16 h-1 bg-secondary mb-8"></div>
-                    <p class="text-gray-700 leading-relaxed mb-6 font-light">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary">Kanbur Kardeşlerin Başarısı</h2>
+                    <div class="w-16 h-1 bg-secondary mb-6"></div>
+                    <p class="text-gray-700 leading-relaxed mb-4 font-light">
                         Gerçek dondurmanın 168 yıllık serüveni Kahramanmaraş'ta başlamıştır. Bu serüvenin mihenk taşlarından biri de Maraş Dondurması'nın günümüzde bir sembol haline gelmesinde önemli yeri olan Yaşar Pastanesi'dir.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-8 font-light">
-                        Bugün dünyanın tanıdığı Yaşar Pastanesi'nin macerası, 1969 yılında Kahramanmaraş'ta 25 metrekarelik bir dükkanda</strong> başladı. Maraş Dondurması dendiğinde Türkiye ve dünyada ilk akla gelen yerdir.
+                    <p class="text-gray-700 leading-relaxed font-light">
+                        Bugün dünyanın tanıdığı Yaşar Pastanesi'nin macerası, 1969 yılında Kahramanmaraş'ta 25 metrekarelik bir dükkanda başladı. Maraş Dondurması dendiğinde Türkiye ve dünyada ilk akla gelen yerdir.
                     </p>
                 </div>
             </div>
@@ -148,53 +244,53 @@
     </section>
 
     <!-- Pastane Kültürü Bölümü -->
-    <section class="py-24 bg-white relative border-b border-gray-200">
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative border-b border-gray-200">
         <div class="container mx-auto px-4 max-w-5xl text-left">
-            <h2 class="text-4xl md:text-5xl text-center font-bold mb-6 text-primary font-serif">Yaşar Pastanesi</h2>
-            <p class="text-gray-700 leading-relaxed font-light mb-10 text-lg">
+            <h2 class="text-3xl md:text-4xl text-center font-bold mb-4 text-primary font-serif">Yaşar Pastanesi</h2>
+            <p class="text-gray-700 leading-relaxed font-light mb-8 text-base md:text-lg">
                 Yasar Pastanesi yalnızca yöreye has malzemelerle yapılan Maraş Dondurması'nın evi değil, aynı zamanda Maraş Mutfağı'nın ve bölge kültürünün temsil edildiği bir vitrin konumundadır. Yaşar Pastanesi bir pastane olduğu kadar da ziyaretçi fotoğraflarının duvarları kapladığı ve aile yadigarı antika eşyaların sergilendiği bir müzedir.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col gap-4">
                     <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner1.png" alt="İç Mekan Genel" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md">
                     <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner2.png" alt="Antika Detaylar" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md">
                 </div>
                 <div>
-                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner3.png" alt="Dış Mekan Keçi Heykeli" class="w-full h-[400px] md:h-[528px] object-cover border border-gray-200 rounded-lg shadow-md">
+                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner3.png" alt="Dış Mekan Keçi Heykeli" class="w-full h-[320px] md:h-[528px] object-cover border border-gray-200 rounded-lg shadow-md">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Galeri Bölümü -->
-    <section class="py-20 bg-gray-50 relative border-b border-gray-200">
+    <section class="py-12 sm:py-16 bg-gray-50 relative border-b border-gray-200">
     <div class="container mx-auto px-4 max-w-6xl">
 
-        <div class="text-center mb-12">
-            <h2 class="text-xl md:text-5xl font-display font-semibold italic text-primary uppercase tracking-wide">
+        <div class="text-center mb-8 sm:mb-10">
+            <h2 class="mx-auto max-w-4xl text-xl sm:text-2xl md:text-4xl font-display font-semibold italic leading-tight text-primary uppercase tracking-normal sm:tracking-wide break-words">
                 Kahramanmaraş’tan Dünya’ya Yayılan Serüven
             </h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
 
             <!-- Galeri 1 -->
-            <div class="h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
                 <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner2.png"
                      alt="Galeri 1"
                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             </div>
 
             <!-- Galeri 2 -->
-            <div class="h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
                 <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner6.png"
                      alt="Galeri 2"
                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             </div>
 
             <!-- Galeri 3 -->
-            <div class="h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
                 <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner7.png"
                      alt="Galeri 3"
                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
@@ -205,94 +301,215 @@
     </div>
 </section>
 <!-- Footer Menü -->
-<section class="bg-[#f7f2e8] py-14 border-t border-b border-gray-200">
+<section class="bg-[#f7f2e8] py-10 sm:py-12 border-t border-b border-gray-200">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
 
             <!-- Kategoriler -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
-                    <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
-                    <li><a href="#" class="hover:text-primary">Börekler</a></li>
-                </ul>
-            </div>
+            <!-- Desktop -->
+<div class="hidden md:block">
+
+    <h3 class="text-primary font-semibold mb-4">
+        Kategoriler
+    </h3>
+
+    <ul class="space-y-2 text-sm">
+        <li><a href="#">Dondurmalar</a></li>
+        <li><a href="#">Tatlılar</a></li>
+        <li><a href="#">Börekler</a></li>
+    </ul>
+
+</div>
+
+<!-- Mobil -->
+<details class="md:hidden border-b py-3">
+
+    <summary class="cursor-pointer font-semibold text-primary">
+        Kategoriler
+    </summary>
+
+    <ul class="mt-3 space-y-2 text-sm">
+
+        <li><a href="#">Dondurmalar</a></li>
+
+        <li><a href="#">Tatlılar</a></li>
+
+        <li><a href="#">Börekler</a></li>
+
+    </ul>
+
+</details>
 
             <!-- Önemli Bilgiler -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
-                    <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
-                    <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
-                    <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
-                    <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
-                </ul>
-            </div>
+            <details class="md:hidden border-b py-3">
+
+<summary class="cursor-pointer text-primary font-semibold">
+
+Önemli Bilgiler
+
+</summary>
+
+<ul class="mt-3 space-y-2 text-sm">
+
+<li>Teslimat Koşulları</li>
+
+<li>Üyelik Sözleşmesi</li>
+
+<li>Satış Sözleşmesi</li>
+
+<li>Garanti ve İade Koşulları</li>
+
+<li>Gizlilik ve Güvenlik</li>
+
+</ul>
+
+</details>
 
             <!-- Hızlı Erişim -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
-                    <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
-                    <li><a href="#" class="hover:text-primary">İletişim</a></li>
-                    <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
-                    <li><a href="#" class="hover:text-primary">Sepetim</a></li>
-                </ul>
-            </div>
+            <details class="md:hidden border-b py-3">
+
+<summary class="cursor-pointer text-primary font-semibold">
+
+Hızlı Erişim
+
+</summary>
+
+<ul class="mt-3 space-y-2 text-sm">
+
+<li>Anasayfa</li>
+
+<li>Yeni Ürünler</li>
+
+<li>İletişim</li>
+
+<li>İndirimdekiler</li>
+
+<li>Sepetim</li>
+
+</ul>
+
+</details>
 
             <!-- Üye -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Üye</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
-                    <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
-                </ul>
-            </div>
+            <details class="md:hidden border-b py-3">
+
+<summary class="cursor-pointer text-primary font-semibold">
+
+Üye
+
+</summary>
+
+<ul class="mt-3 space-y-2 text-sm">
+
+<li>Yeni Üyelik</li>
+
+<li>Üye Girişi</li>
+
+</ul>
+
+</details>
 
             <!-- E-Bülten -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4 uppercase">
-                    E-Bülten Aboneliği
-                </h3>
+           <!-- Masaüstü -->
+<div class="hidden md:block">
 
-                <p class="text-sm text-gray-700 mb-4">
-                    Kampanya ve yeniliklerden haberdar olmak için
-                    e-bültenimize kayıt olun.
-                </p>
+    <h3 class="text-primary font-semibold mb-4 uppercase">
+        E-Bülten Aboneliği
+    </h3>
 
-                <div class="flex overflow-hidden border border-gray-300 rounded">
-                    <input
-                        type="email"
-                        placeholder="E-posta adresinizi giriniz."
-                        class="flex-1 px-3 py-2 text-sm outline-none">
+    <p class="text-sm text-gray-700 mb-4">
+        Kampanya ve yeniliklerden haberdar olmak için
+        e-bültenimize kayıt olun.
+    </p>
 
-                    <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
-                        ❯
-                    </button>
-                </div>
+    <div class="flex overflow-hidden border border-gray-300 rounded">
+        <input
+            type="email"
+            placeholder="E-posta adresinizi giriniz."
+            class="flex-1 px-3 py-2 text-sm outline-none">
 
-                <h4 class="text-primary font-semibold mt-5 mb-2">
-                    Sosyal Medya
-                </h4>
+        <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
+            ❯
+        </button>
+    </div>
 
-                <p class="text-sm text-gray-700">
-                    Sosyal medyaya özel indirim ve kampanyalardan ilk sen
-                    haberdar ol, fırsatları yakala!
-                </p>
-            </div>
+    <h4 class="text-primary font-semibold mt-5 mb-2">
+        Sosyal Medya
+    </h4>
+
+    <p class="text-sm text-gray-700">
+        Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol,
+        fırsatları yakala!
+    </p>
+
+</div>
+
+<!-- Mobil -->
+<details class="md:hidden border-b py-3 group">
+
+    <summary class="flex justify-between items-center cursor-pointer list-none">
+
+        <span class="text-primary font-semibold">
+            E-Bülten Aboneliği
+        </span>
+
+        <svg class="w-5 h-5 text-primary transition-transform duration-300 group-open:rotate-180"
+             xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"/>
+
+        </svg>
+
+    </summary>
+
+    <div class="mt-4">
+
+        <p class="text-sm text-gray-700 mb-4">
+            Kampanya ve yeniliklerden haberdar olmak için
+            e-bültenimize kayıt olun.
+        </p>
+
+        <div class="flex overflow-hidden border border-gray-300 rounded">
+
+            <input
+                type="email"
+                placeholder="E-posta adresinizi giriniz."
+                class="flex-1 px-3 py-2 text-sm outline-none">
+
+            <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
+                ❯
+            </button>
+
+        </div>
+
+        <h4 class="text-primary font-semibold mt-5 mb-2">
+            Sosyal Medya
+        </h4>
+
+        <p class="text-sm text-gray-700">
+            Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol,
+            fırsatları yakala!
+        </p>
+
+    </div>
+
+</details>
 
         </div>
     </div>
 </section>
     <!-- Bankalar Bölümü -->
-   <footer class="bg-white pt-10 pb-8">
+   <footer class="bg-white pt-8 pb-6">
     <div class="container mx-auto px-4 text-center">
 
         <!-- Bankalar -->
-        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 mb-8">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-8 gap-y-4 md:gap-y-6 mb-6">
             <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank1.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">          
             <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank2.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
             <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank3.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
