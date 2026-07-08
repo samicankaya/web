@@ -55,6 +55,13 @@
                 display: none;
             }
         }
+        /* Details marker hide for cross-browser support */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
@@ -62,13 +69,11 @@
     <!-- Top Bar -->
     <div class="bg-gray-100 border-b border-gray-200 text-sm text-gray-600 py-2">
         <div class="container mx-auto px-4 flex justify-center sm:justify-end items-center">
-            <div class="flex items-center">
-                <div class="flex items-center group cursor-pointer">
-                    <svg class="w-5 h-5 text-primary mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    <span class="font-medium group-hover:text-primary transition-colors duration-300">Sepet (0) - 0,00 TL</span>
-                </div>
+            <div class="flex items-center group cursor-pointer">
+                <svg class="w-5 h-5 text-primary mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <span class="font-medium group-hover:text-primary transition-colors duration-300">Sepet (0) - 0,00 TL</span>
             </div>
         </div>
     </div>
@@ -78,146 +83,91 @@
         <div class="header-logo-row container mx-auto px-3 sm:px-4 py-2.5 sm:py-4 grid items-center gap-3 sm:gap-4 relative">
             <div class="min-w-0 flex items-center">
                 <span class="header-brand font-display font-bold italic leading-tight max-w-[9rem] sm:max-w-none">
-    <span class="text-primary
-                 text-sm
-                 sm:text-base
-                 md:text-lg">
-        MADO Beyazı®
-    </span>
-
-    <br>
-
-    <span class="text-secondary
-                 text-xs
-                 sm:text-sm
-                 md:text-base">
-        Keçi Çiftliği
-    </span>
-</span>
+                    <span class="text-primary text-sm sm:text-base md:text-lg">MADO Beyazı®</span>
+                    <br>
+                    <span class="text-secondary text-xs sm:text-sm md:text-base">Keçi Çiftliği</span>
+                </span>
             </div>
             <div class="min-w-0 flex justify-center">
-    <a href="#" class="flex w-full items-center justify-center">
-
-        <img
-            src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yeni-logo/MADOLOGO.png"
-            alt="MADO Logo"
-            class="header-logo-img">
-
-    </a>
-</div>
-            <div class="min-w-0 flex justify-end">
-                
+                <a href="#" class="flex w-full items-center justify-center">
+                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yeni-logo/MADOLOGO.png" alt="MADO Logo" class="header-logo-img">
+                </a>
             </div>
+            <div class="min-w-0 flex justify-end"></div>
         </div>
 
- <div class="bg-gray-50 border-t border-b border-gray-100">
-    <div class="container mx-auto px-4">
-
-        <!-- Masaüstü Menü -->
-       <nav class="hidden lg:flex items-center justify-center gap-8 xl:gap-10 py-2.5">
-
-    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">
-        TARİHÇE
-    </a>
-
-    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">
-        DONDURMALAR
-    </a>
-
-    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">
-        ŞERBETLİ TATLILAR
-    </a>
-
-    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">
-        YÖRESEL SEPET
-    </a>
-
-    <!-- Sağ tarafta üye işlemleri -->
-    <div class="flex items-center gap-5 ml-6 pl-6 border-l border-gray-300">
-
-        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-primary transition-colors">
-            ÜYE GİRİŞİ
-        </a>
-
-        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-primary transition-colors">
-            ÜYE OL
-        </a>
-
-    </div>
-
-</nav>
-
-        <!-- Mobil Menü -->
-        <div class="lg:hidden">
-
-            <button id="menuButton"
-                class="w-full flex items-center justify-between py-2.5 font-semibold text-gray-800">
-
-                <span>MENÜ</span>
-
-                <svg id="menuIcon" class="w-6 h-6 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-
-            </button>
-
-            <div id="mobileMenu" class="hidden pb-4">
-
-                <a href="#" class="block py-3 border-b hover:text-primary">
-                    TARİHÇE
-                </a>
-
-                <a href="#" class="block py-3 border-b hover:text-primary">
-                    DONDURMALAR
-                </a>
-
-                <a href="#" class="block py-3 border-b hover:text-primary">
-                    ŞERBETLİ TATLILAR
-                </a>
-
-                <a href="#" class="block py-3 border-b hover:text-primary">
-                    YÖRESEL SEPET
-                </a>
-
-                <a href="#" class="block py-3 border-b hover:text-primary">
-                    ÜYE GİRİŞİ
-                </a>
-
-                <a href="#" class="block py-3 hover:text-primary">
-                    ÜYE OL
-                </a>
-
+        <div class="bg-gray-50 border-t border-b border-gray-100">
+            <div class="container mx-auto px-4">
+                <nav class="hidden lg:flex items-center justify-center gap-8 xl:gap-10 py-2.5">
+                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">TARİHÇE</a>
+                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">DONDURMALAR</a>
+                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">ŞERBETLİ TATLILAR</a>
+                    <a href="#" class="text-sm font-semibold tracking-wide text-gray-700 hover:text-primary transition-colors">YÖRESEL SEPET</a>
+                    <div class="flex items-center gap-5 ml-6 pl-6 border-l border-gray-300">
+                        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-primary transition-colors">ÜYE GİRİŞİ</a>
+                        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-primary transition-colors">ÜYE OL</a>
+                    </div>
+                </nav>
+                <div class="lg:hidden">
+                    <button id="menuButton" class="w-full flex items-center justify-between py-2.5 font-semibold text-gray-800 focus:outline-none">
+                        <span>MENÜ</span>
+                        <svg id="menuIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <!-- Animasyonlu Menü Alanı -->
+                    <div id="mobileMenu" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0">
+                        <div class="pb-4">
+                            <a href="#" class="block py-3 border-b hover:text-primary transition-colors">TARİHÇE</a>
+                            <a href="#" class="block py-3 border-b hover:text-primary transition-colors">DONDURMALAR</a>
+                            <a href="#" class="block py-3 border-b hover:text-primary transition-colors">ŞERBETLİ TATLILAR</a>
+                            <a href="#" class="block py-3 border-b hover:text-primary transition-colors">YÖRESEL SEPET</a>
+                            <a href="#" class="block py-3 border-b hover:text-primary transition-colors">ÜYE GİRİŞİ</a>
+                            <a href="#" class="block py-3 hover:text-primary transition-colors">ÜYE OL</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-    </div>
-</div>
-
-<script>
-const button = document.getElementById('menuButton');
-const menu = document.getElementById('mobileMenu');
-
-button.addEventListener('click', function () {
-    menu.classList.toggle('hidden');
-});
-</script>
     </header>
+
+    <script>
+        const button = document.getElementById('menuButton');
+        const menu = document.getElementById('mobileMenu');
+        const icon = document.getElementById('menuIcon');
+
+        button.addEventListener('click', function () { 
+            if (menu.classList.contains('max-h-0')) {
+                menu.classList.remove('max-h-0', 'opacity-0');
+                menu.classList.add('max-h-[500px]', 'opacity-100');
+                icon.classList.add('rotate-180', 'text-primary');
+            } else {
+                menu.classList.add('max-h-0', 'opacity-0');
+                menu.classList.remove('max-h-[500px]', 'opacity-100');
+                icon.classList.remove('rotate-180', 'text-primary');
+            }
+        });
+    </script>
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-white">
-        <img
-            src="https://madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/int2.png"
-            alt="Yaşar Pastanesi"
-            class="block w-full h-auto opacity-80">
-        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent z-10"></div>
+        <!-- Masaüstü Görseli -->
+        <img src="https://madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/int2.png" 
+             alt="Yaşar Pastanesi" 
+             class="hidden md:block w-full h-auto opacity-80">
+        
+        <!-- Mobil Görseli ve Yazısı -->
+        <div class="block md:hidden relative">
+            <div class="absolute top-6 left-0 w-full text-center z-20 px-4">
+                <h2 class="text-2xl font-display font-bold italic text-secondary drop-shadow-md">
+                    Her dondurma dondurma değildir.
+                </h2>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CvKQilei_obWTib3ryaY1nYLuxl60Awtfi1RRHrLZA&s=10" 
+                 alt="Yaşar Pastanesi Mobile" 
+                 class="w-full h-auto opacity-80">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
     </section>
 
     <!-- Tarihçe Özeti -->
@@ -291,263 +241,175 @@ button.addEventListener('click', function () {
 
     <!-- Galeri Bölümü -->
     <section class="py-12 sm:py-16 bg-gray-50 relative border-b border-gray-200">
-    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 max-w-6xl">
 
-        <div class="text-center mb-8 sm:mb-10">
-            <h2 class="mx-auto max-w-4xl text-xl sm:text-2xl md:text-4xl font-display font-semibold italic leading-tight text-primary uppercase tracking-normal sm:tracking-wide break-words">
-                Kahramanmaraş’tan Dünya’ya Yayılan Serüven
-            </h2>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mb-12">
-
-            <!-- Galeri 1 -->
-            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
-                <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner2.png"
-                     alt="Galeri 1"
-                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="text-center mb-8 sm:mb-10">
+                <h2 class="mx-auto max-w-4xl text-xl sm:text-2xl md:text-4xl font-display font-semibold italic leading-tight text-primary uppercase tracking-normal sm:tracking-wide break-words">
+                    Kahramanmaraş’tan Dünya’ya Yayılan Serüven
+                </h2>
             </div>
 
-            <!-- Galeri 2 -->
-            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
-                <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner6.png"
-                     alt="Galeri 2"
-                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-            </div>
-
-            <!-- Galeri 3 -->
-            <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
-                <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner7.png"
-                     alt="Galeri 3"
-                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-            </div>
-
-        </div>
-
-    </div>
-<!-- Footer Menü -->
-<section class="bg-[#f7f2e8] py-10 sm:py-12 border-t border-b border-gray-200">
-    <div class="container mx-auto px-4">
-
-        <!-- ================== MASAÜSTÜ ================== -->
-        <div class="hidden md:grid md:grid-cols-5 gap-8">
-
-            <!-- Kategoriler -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
-
-                <ul class="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
-                    <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
-                    <li><a href="#" class="hover:text-primary">Börekler</a></li>
-                </ul>
-            </div>
-
-            <!-- Önemli Bilgiler -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
-
-                <ul class="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
-                    <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
-                    <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
-                    <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
-                    <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
-                </ul>
-            </div>
-
-            <!-- Hızlı Erişim -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
-
-                <ul class="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
-                    <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
-                    <li><a href="#" class="hover:text-primary">İletişim</a></li>
-                    <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
-                    <li><a href="#" class="hover:text-primary">Sepetim</a></li>
-                </ul>
-            </div>
-
-            <!-- Üye -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4">Üye</h3>
-
-                <ul class="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
-                    <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
-                </ul>
-            </div>
-
-            <!-- E-Bülten -->
-            <div>
-                <h3 class="text-primary font-semibold mb-4 uppercase">
-                    E-Bülten Aboneliği
-                </h3>
-
-                <p class="text-sm text-gray-700 mb-4">
-                    Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.
-                </p>
-
-                <div class="flex overflow-hidden border border-gray-300 rounded">
-                    <input
-                        type="email"
-                        placeholder="E-posta adresinizi giriniz."
-                        class="flex-1 px-3 py-2 text-sm outline-none">
-
-                    <button class="bg-primary text-white px-5 hover:bg-secondary transition-colors">
-                        ❯
-                    </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mb-12">
+                <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/11/f2/5d/d8/photo0jpg.jpg" alt="Galeri 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-
-                <h4 class="text-primary font-semibold mt-5 mb-2">
-                    Sosyal Medya
-                </h4>
-
-                <p class="text-sm text-gray-700">
-                    Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!
-                </p>
+                <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner6.png" alt="Galeri 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group">
+                    <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner7.png" alt="Galeri 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
             </div>
 
         </div>
+    </section>
 
-        <!-- ================== MOBİL ================== -->
-        <div class="md:hidden">
-
-            <details class="border-b py-3">
-                <summary class="cursor-pointer font-semibold text-primary">Kategoriler</summary>
-
-                <ul class="mt-3 space-y-2 text-sm">
-                    <li><a href="#">Dondurmalar</a></li>
-                    <li><a href="#">Tatlılar</a></li>
-                    <li><a href="#">Börekler</a></li>
-                </ul>
-            </details>
-
-            <details class="border-b py-3">
-                <summary class="cursor-pointer font-semibold text-primary">Önemli Bilgiler</summary>
-
-                <ul class="mt-3 space-y-2 text-sm">
-                    <li>Teslimat Koşulları</li>
-                    <li>Üyelik Sözleşmesi</li>
-                    <li>Satış Sözleşmesi</li>
-                    <li>Garanti ve İade Koşulları</li>
-                    <li>Gizlilik ve Güvenlik</li>
-                </ul>
-            </details>
-
-            <details class="border-b py-3">
-                <summary class="cursor-pointer font-semibold text-primary">Hızlı Erişim</summary>
-
-                <ul class="mt-3 space-y-2 text-sm">
-                    <li>Anasayfa</li>
-                    <li>Yeni Ürünler</li>
-                    <li>İletişim</li>
-                    <li>İndirimdekiler</li>
-                    <li>Sepetim</li>
-                </ul>
-            </details>
-
-            <details class="border-b py-3">
-                <summary class="cursor-pointer font-semibold text-primary">Üye</summary>
-
-                <ul class="mt-3 space-y-2 text-sm">
-                    <li>Yeni Üyelik</li>
-                    <li>Üye Girişi</li>
-                </ul>
-            </details>
-
-            <details class="border-b py-3 group">
-
-                <summary class="flex justify-between items-center cursor-pointer list-none">
-
-                    <span class="text-primary font-semibold">
-                        E-Bülten Aboneliği
-                    </span>
-
-                    <svg class="w-5 h-5 transition-transform group-open:rotate-180"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24">
-
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M19 9l-7 7-7-7"/>
-                    </svg>
-
-                </summary>
-
-                <div class="mt-4">
-
-                    <p class="text-sm text-gray-700 mb-4">
-                        Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.
-                    </p>
-
-                    <div class="flex overflow-hidden border border-gray-300 rounded">
-
-                        <input
-                            type="email"
-                            placeholder="E-posta adresinizi giriniz."
-                            class="flex-1 px-3 py-2 text-sm outline-none">
-
-                        <button class="bg-primary text-white px-5">
-                            ❯
-                        </button>
-
+    <!-- Footer Menü -->
+    <section class="bg-[#f7f2e8] py-10 sm:py-12 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            
+            <!-- Masaüstü -->
+            <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div>
+                    <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
+                        <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
+                        <li><a href="#" class="hover:text-primary">Börekler</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
+                        <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
+                        <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
+                        <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
+                        <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
+                        <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
+                        <li><a href="#" class="hover:text-primary">İletişim</a></li>
+                        <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
+                        <li><a href="#" class="hover:text-primary">Sepetim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-primary font-semibold mb-4">Üye</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
+                        <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3 lg:col-span-1">
+                    <h3 class="text-primary font-semibold mb-4 uppercase">E-Bülten Aboneliği</h3>
+                    <p class="text-sm text-gray-700 mb-4">Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.</p>
+                    <div class="flex w-full overflow-hidden border border-gray-300 rounded bg-white">
+                        <input type="email" placeholder="E-posta adresiniz..." class="flex-1 min-w-0 px-3 py-2 text-sm outline-none text-gray-900 w-full">
+                        <button class="flex-shrink-0 bg-primary text-white px-4 hover:bg-secondary transition-colors">❯</button>
                     </div>
-
-                    <h4 class="text-primary font-semibold mt-5 mb-2">
-                        Sosyal Medya
-                    </h4>
-
-                    <p class="text-sm text-gray-700">
-                        Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!
-                    </p>
-
+                    <h4 class="text-primary font-semibold mt-5 mb-2">Sosyal Medya</h4>
+                    <p class="text-sm text-gray-700">Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!</p>
                 </div>
+            </div>
 
-            </details>
+            <!-- Mobil -->
+            <div class="md:hidden">
+                <details class="border-b py-3 group">
+                    <summary class="flex items-center cursor-pointer list-none focus:outline-none">
+                        <svg class="w-5 h-5 text-primary mr-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <span class="text-primary font-semibold">Kategoriler</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm pl-7">
+                        <li><a href="#" class="block hover:text-primary transition-colors">Dondurmalar</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Tatlılar</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Börekler</a></li>
+                    </ul>
+                </details>
+                
+                <details class="border-b py-3 group">
+                    <summary class="flex items-center cursor-pointer list-none focus:outline-none">
+                        <svg class="w-5 h-5 text-primary mr-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <span class="text-primary font-semibold">Önemli Bilgiler</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm pl-7">
+                        <li><a href="#" class="block hover:text-primary transition-colors">Teslimat Koşulları</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Üyelik Sözleşmesi</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Satış Sözleşmesi</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Garanti ve İade Koşulları</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Gizlilik ve Güvenlik</a></li>
+                    </ul>
+                </details>
 
+                <details class="border-b py-3 group">
+                    <summary class="flex items-center cursor-pointer list-none focus:outline-none">
+                        <svg class="w-5 h-5 text-primary mr-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <span class="text-primary font-semibold">Hızlı Erişim</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm pl-7">
+                        <li><a href="#" class="block hover:text-primary transition-colors">Anasayfa</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Yeni Ürünler</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">İletişim</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">İndirimdekiler</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Sepetim</a></li>
+                    </ul>
+                </details>
+
+                <details class="border-b py-3 group">
+                    <summary class="flex items-center cursor-pointer list-none focus:outline-none">
+                        <svg class="w-5 h-5 text-primary mr-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <span class="text-primary font-semibold">Üye</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm pl-7">
+                        <li><a href="#" class="block hover:text-primary transition-colors">Yeni Üyelik</a></li>
+                        <li><a href="#" class="block hover:text-primary transition-colors">Üye Girişi</a></li>
+                    </ul>
+                </details>
+
+                <details class="border-b py-3 group">
+                    <summary class="flex items-center cursor-pointer list-none focus:outline-none">
+                        <svg class="w-5 h-5 text-primary mr-2 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <span class="text-primary font-semibold">E-Bülten Aboneliği</span>
+                    </summary>
+                    <div class="mt-4 pl-7">
+                        <p class="text-sm text-gray-700 mb-4">Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.</p>
+                        <div class="flex w-full overflow-hidden border border-gray-300 rounded bg-white">
+                            <input type="email" placeholder="E-posta adresiniz..." class="flex-1 min-w-0 px-3 py-2 text-sm outline-none w-full text-gray-900">
+                            <button class="flex-shrink-0 bg-primary text-white px-5 hover:bg-secondary transition-colors">❯</button>
+                        </div>
+                        <h4 class="text-primary font-semibold mt-5 mb-2">Sosyal Medya</h4>
+                        <p class="text-sm text-gray-700">Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!</p>
+                    </div>
+                </details>
+            </div>
         </div>
+    </section>
 
-    </div>
-</section>
-        </div>
-    </div>
-</section>
-    <!-- Bankalar Bölümü -->
-   <footer class="bg-white pt-8 pb-6">
-    <div class="container mx-auto px-4 text-center">
+    <!-- Bankalar ve T-Soft Footer -->
+    <footer class="bg-white pt-8 pb-6 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            
+            <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-8 gap-y-4 md:gap-y-6 mb-6">
+                <script>
+                    for (let i = 1; i <= 12; i++) {
+                        document.write(`<img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank${i}.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">`);
+                    }
+                </script>
+            </div>
 
-        <!-- Bankalar -->
-        <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-8 gap-y-4 md:gap-y-6 mb-6">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank1.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">          
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank2.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank3.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank4.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank5.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank6.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank7.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank8.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank9.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank10.png"class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank11.png" class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-            <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/bank12.png"class="h-9 md:h-10 w-auto object-contain transition-all duration-300">
-        </div>
-
-        <!-- T-Soft -->
-        <div id="tsoft-eticaret-sistemleri" class="box col-12 text-xs text-gray-400">
-            <div class="fl col-12">
+            <div id="tsoft-eticaret-sistemleri" class="text-xs text-gray-400">
                 <a href="http://www.tsoft.com.tr" target="_blank" title="T-Soft E-Ticaret Sistemleri" class="hover:text-primary transition-colors duration-300">
-                      <span class="text-primary">T</span>-Soft
+                    <span class="text-primary">T</span>-Soft
                 </a>
                 <a>E-Ticaret Sistemleri ile Hazırlanmıştır.</a>
             </div>
-        </div>
 
-    </div>
-</footer>
+        </div>
+    </footer>
 
 </body>
 </html>
