@@ -70,6 +70,194 @@
         details > summary::-webkit-details-marker {
             display: none;
         }
+
+        /* ===== HERO SLIDER STYLES ===== */
+
+        /* --- Slides --- */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .hero-slide.prev {
+            opacity: 0;
+            z-index: 1;
+        }
+        .hero-slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transform: scale(1);
+        }
+
+        /* Ken Burns: multiple directional variants for visual variety */
+        @keyframes kenburns-1 {
+            0%   { transform: scale(1)   translate(0, 0); }
+            100% { transform: scale(1.15) translate(-1.5%, -1%); }
+        }
+        @keyframes kenburns-2 {
+            0%   { transform: scale(1.12) translate(-1%, 1%); }
+            100% { transform: scale(1)   translate(0, 0); }
+        }
+        @keyframes kenburns-3 {
+            0%   { transform: scale(1)   translate(0, 0); }
+            100% { transform: scale(1.18) translate(1.5%, -0.5%); }
+        }
+        @keyframes kenburns-4 {
+            0%   { transform: scale(1.1)  translate(1%, 0.5%); }
+            100% { transform: scale(1)   translate(0, 0); }
+        }
+
+        .hero-slide.active .hero-slide-img {
+            animation-duration: 7s;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation-fill-mode: both;
+        }
+        .hero-slide.active:nth-child(4n+1) .hero-slide-img { animation-name: kenburns-1; }
+        .hero-slide.active:nth-child(4n+2) .hero-slide-img { animation-name: kenburns-2; }
+        .hero-slide.active:nth-child(4n+3) .hero-slide-img { animation-name: kenburns-3; }
+        .hero-slide.active:nth-child(4n+4) .hero-slide-img { animation-name: kenburns-4; }
+
+        /* --- Caption --- */
+        .hero-caption {
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            right: 0;
+            z-index: 25;
+            text-align: center;
+            padding: 0 1.5rem;
+            pointer-events: none;
+        }
+        .hero-caption-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            color: #fff;
+            font-size: clamp(1.5rem, 5vw, 3.2rem);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-caption-sub {
+            font-family: 'Mukta', sans-serif;
+            font-weight: 300;
+            color: rgba(255,255,255,0.88);
+            font-size: clamp(0.85rem, 2.2vw, 1.2rem);
+            text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+            letter-spacing: 0.04em;
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.8s ease 0.18s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+        }
+        .hero-caption.visible .hero-caption-title,
+        .hero-caption.visible .hero-caption-sub {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Navigation Arrows --- */
+        .hero-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 26;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+        #heroSlider:hover .hero-arrow {
+            opacity: 1;
+        }
+        .hero-arrow:hover {
+            background: rgba(242, 92, 5, 0.7);
+            border-color: rgba(242, 92, 5, 0.9);
+            transform: translateY(-50%) scale(1.12);
+            box-shadow: 0 0 24px rgba(242, 92, 5, 0.35);
+        }
+        .hero-arrow-left  { left: 16px; }
+        .hero-arrow-right { right: 16px; }
+        @media (max-width: 640px) {
+            .hero-arrow { width: 38px; height: 38px; opacity: 0.7; }
+            .hero-arrow svg { width: 18px; height: 18px; }
+            .hero-arrow-left  { left: 8px; }
+            .hero-arrow-right { right: 8px; }
+            #heroSlider:hover .hero-arrow { opacity: 1; }
+        }
+
+        /* --- Dot Indicators --- */
+        .hero-dots {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 26;
+            display: flex;
+            gap: 10px;
+        }
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.6);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+        }
+        .hero-dot:hover {
+            background: rgba(255,255,255,0.5);
+            border-color: #fff;
+        }
+        .hero-dot.active {
+            background: #F25C05;
+            border-color: #F25C05;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(242, 92, 5, 0.5);
+        }
+
+        /* --- Progress Bar --- */
+        .hero-progress-track {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.12);
+            z-index: 27;
+        }
+        .hero-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #F25C05, #ff8a3d);
+            transition: none;
+            border-radius: 0 2px 2px 0;
+        }
+        .hero-progress-bar.animating {
+            transition: width linear;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
@@ -139,27 +327,85 @@
 
     <main>
 
-        <section class="relative overflow-hidden bg-white">
-        <picture>
-            <source media="(min-width: 768px)" srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/9c/84/24/yasar-pastanesi.jpg">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CvKQilei_obWTib3ryaY1nYLuxl60Awtfi1RRHrLZA&s=10" 
-                 alt="Yaşar Pastanesi Dış Cephe" 
-                 class="w-full h-[200px] md:h-[400px] object-cover opacity-90">
-        </picture>
-        
-        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
-    </section>
+        <!-- ===================== HERO SLIDER ===================== -->
+        <section id="heroSlider" class="relative bg-black z-10 overflow-hidden" style="height: clamp(280px, 55vw, 560px);">
 
-        <section class="py-12 sm:py-16 lg:py-20 bg-white relative border-b border-gray-200">
-            <div class="container mx-auto px-4">
+            <!-- SLIDES -->
+            <div class="hero-slides" style="position:absolute;inset:0;">
+                <!-- Slide 1 -->
+                <div class="hero-slide active" data-caption-title="Yaşar Pastanesi" data-caption-sub="1969'dan beri eşsiz Maraş lezzetleri">
+                    <img src="https://www.yasarpastanesi.com.tr/Data/EditorFiles/_DSC3863.jpg"
+                         alt="Yaşar Pastanesi Dış Cephe"
+                         class="hero-slide-img">
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide" data-caption-title="Gerçek Maraş Dondurması" data-caption-sub="Keçi sütü ve salep ile hazırlanan efsane lezzet">
+                    <img src="https://image.hurimg.com/i/hurriyet/90/0x0/5c7904710f254406308b8a4d.jpg"
+                         alt="Maraş Dondurması"
+                         class="hero-slide-img">
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide" data-caption-title="Kanbur Kardeşler" data-caption-sub="Kahramanmaraş'tan dünyaya uzanan bir başarı hikayesi">
+                    <img src="https://cdnuploads.aa.com.tr/uploads/userFiles/82e2c611-519a-471c-8da1-e26f0e4933a0/2019%2FMART%2F20190301_2_35195046_42143040.jpg"
+                         alt="Kanbur Kardeşler"
+                         class="hero-slide-img">
+                </div>
+                <!-- Slide 4 -->
+                <div class="hero-slide" data-caption-title="Geleneksel Ustalık" data-caption-sub="Nesiller boyu aktarılan zanaat ve tutku">
+                    <img src="https://www.yasarpastanesi.com.tr/Data/EditorFiles/_A2A1574.jpg"
+                         alt="Geleneksel Ustalık"
+                         class="hero-slide-img">
+                </div>
+            </div>
+
+            <!-- CAPTION OVERLAY -->
+            <div class="hero-caption" id="heroCaption">
+                <h1 class="hero-caption-title" id="heroCaptionTitle">Yaşar Pastanesi</h1>
+                <p class="hero-caption-sub" id="heroCaptionSub">1969'dan beri eşsiz Maraş lezzetleri</p>
+            </div>
+
+            <!-- GRADIENT OVERLAYS (preserved original design) -->
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-secondary via-secondary/20 to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute top-full left-0 w-full h-1/2 bg-gradient-to-b from-secondary via-secondary/20 to-transparent z-30 pointer-events-none"></div>
+            <!-- Extra dark bottom vignette for text readability -->
+            <div class="absolute bottom-0 left-0 w-full h-2/3 z-[15] pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);"></div>
+
+            <!-- NAVIGATION ARROWS -->
+            <button id="heroPrev" aria-label="Önceki Slayt" class="hero-arrow hero-arrow-left">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="heroNext" aria-label="Sonraki Slayt" class="hero-arrow hero-arrow-right">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+
+            <!-- DOT INDICATORS -->
+            <div class="hero-dots" id="heroDots">
+                <button class="hero-dot active" data-index="0" aria-label="Slayt 1"></button>
+                <button class="hero-dot" data-index="1" aria-label="Slayt 2"></button>
+                <button class="hero-dot" data-index="2" aria-label="Slayt 3"></button>
+                <button class="hero-dot" data-index="3" aria-label="Slayt 4"></button>
+            </div>
+
+            <!-- PROGRESS BAR -->
+            <div class="hero-progress-track">
+                <div class="hero-progress-bar" id="heroProgressBar"></div>
+            </div>
+
+        </section>
+        <!-- ===================== /HERO SLIDER ===================== -->
+
+        <section class="pb-12 sm:pb-16 lg:pb-20 bg-white relative border-b border-gray-200">
+            <div class="container mx-auto px-4 relative z-30 mt-6 md:mt-12">
                 <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                    
                     <div class="w-full md:w-1/2 relative overflow-hidden rounded-lg">
                         <div class="absolute inset-1 sm:inset-2 bg-secondary/10 rounded-lg transform -rotate-2 z-0"></div>
                         <div class="bg-white h-[240px] sm:h-[300px] lg:h-[360px] rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-700 relative z-10 border border-gray-200 flex items-center justify-center overflow-hidden group cursor-pointer">
-                             <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner5.png" alt="Yaşar Pastanesi Tarihçesi" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-all duration-700">
+                             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/c7/74/13/caption.jpg?w=1200&h=1200&s=1" alt="Yaşar Pastanesi Tarihçesi" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-[1.03] transition-all duration-700">
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2">
+                    
+                    <div class="w-full md:w-1/2 pt-6 md:pt-0">
                         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary">Hikayenin Başladığı Yer</h2>
                         <div class="w-16 h-1 bg-secondary mb-6"></div>
                         <p class="text-gray-700 leading-relaxed mb-4 font-light">
@@ -169,6 +415,7 @@
                             Bu nedenle Yaşar Pastanesi, Kahramanmaraş lezzetlerinin ülkemizde ve dünyada tanınması ve sevilmesine öncülük eden markaların beşiği konumundadır.
                         </p>
                     </div>
+                    
                 </div>
             </div>
         </section>
@@ -206,8 +453,8 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-4">
-                        <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner1.png" alt="Yaşar Pastanesi Nostaljik İç Mekan" loading="lazy" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
-                        <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner2.png" alt="Yaşar Pastanesi Antika Eşyalar" loading="lazy" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
+                        <img src="https://marassonhaber.com/wp-content/uploads/2025/05/yasar-pastanesi-mado-kalitesiyle-yeni-adresinde-kapilarini-aciyor111.webp" alt="Yaşar Pastanesi Nostaljik İç Mekan" loading="lazy" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
+                        <img src="https://www.yasarpastanesi.com.tr/Data/EditorFiles/_A2A1567.jpg" alt="Yaşar Pastanesi Antika Eşyalar" loading="lazy" class="w-full h-48 md:h-64 object-cover border border-gray-200 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
                     </div>
                     <div>
                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner3.png" alt="Dış Mekan Mado Keçi Heykeli" loading="lazy" class="w-full h-[320px] md:h-[528px] object-cover border border-gray-200 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
@@ -230,7 +477,7 @@
                         <img src="https://media-cdn.tripadvisor.com/media/photo-s/11/f2/5d/d8/photo0jpg.jpg" alt="Mado Dondurma Çeşitleri Sunumu" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
-                        <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner6.png" alt="Tarihi Kahramanmaraş Dondurmacısı Temsili" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://nasilbiryer.com.tr/wp-content/uploads/2025/05/1747833743_607_Yasar-Pastanesi.jpeg" alt="Tarihi Kahramanmaraş Dondurmacısı Temsili" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <div class="h-56 md:h-64 rounded-lg overflow-hidden border border-gray-200 shadow-lg group hover:shadow-2xl transition-shadow duration-700 cursor-pointer">
                         <img src="https://www.madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/banner7.png" alt="Yaşar Pastanesi Ustaları Çalışırken" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
@@ -439,6 +686,139 @@
                 icon.classList.remove('rotate-180', 'text-primary');
             }
         });
+    </script>
+
+    <script>
+    (function() {
+        'use strict';
+
+        const INTERVAL = 6000; // ms between slides
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        const caption = document.getElementById('heroCaption');
+        const captionTitle = document.getElementById('heroCaptionTitle');
+        const captionSub = document.getElementById('heroCaptionSub');
+        const progressBar = document.getElementById('heroProgressBar');
+        const slider = document.getElementById('heroSlider');
+        let current = 0;
+        let timer = null;
+        let paused = false;
+
+        function goTo(index, direction) {
+            if (index === current) return;
+            const prev = current;
+            current = (index + slides.length) % slides.length;
+
+            // Caption fade out
+            caption.classList.remove('visible');
+
+            // Slide transition
+            slides[prev].classList.remove('active');
+            slides[prev].classList.add('prev');
+            slides[current].classList.add('active');
+
+            // Clean prev class after transition
+            setTimeout(function() {
+                slides[prev].classList.remove('prev');
+            }, 1500);
+
+            // Update dots
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            dots[current].classList.add('active');
+
+            // Update caption text after a small delay for the fade-out
+            setTimeout(function() {
+                var slide = slides[current];
+                captionTitle.textContent = slide.getAttribute('data-caption-title') || '';
+                captionSub.textContent = slide.getAttribute('data-caption-sub') || '';
+                caption.classList.add('visible');
+            }, 350);
+
+            // Reset progress
+            resetProgress();
+        }
+
+        function next() { goTo((current + 1) % slides.length, 1); }
+        function prev() { goTo((current - 1 + slides.length) % slides.length, -1); }
+
+        function resetProgress() {
+            progressBar.classList.remove('animating');
+            progressBar.style.width = '0%';
+            // Force reflow
+            void progressBar.offsetWidth;
+            progressBar.classList.add('animating');
+            progressBar.style.transitionDuration = INTERVAL + 'ms';
+            progressBar.style.width = '100%';
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            resetProgress();
+            timer = setInterval(function() {
+                if (!paused) next();
+            }, INTERVAL);
+        }
+
+        function stopAutoPlay() {
+            if (timer) { clearInterval(timer); timer = null; }
+        }
+
+        // Arrow clicks
+        document.getElementById('heroNext').addEventListener('click', function() {
+            next();
+            startAutoPlay();
+        });
+        document.getElementById('heroPrev').addEventListener('click', function() {
+            prev();
+            startAutoPlay();
+        });
+
+        // Dot clicks
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                goTo(parseInt(dot.getAttribute('data-index')), 1);
+                startAutoPlay();
+            });
+        });
+
+        // Pause on hover
+        slider.addEventListener('mouseenter', function() { paused = true; });
+        slider.addEventListener('mouseleave', function() { paused = false; });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Only if hero is partially visible
+            var rect = slider.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+            if (e.key === 'ArrowRight') { next(); startAutoPlay(); }
+            if (e.key === 'ArrowLeft')  { prev(); startAutoPlay(); }
+        });
+
+        // Touch/Swipe support
+        (function() {
+            var touchStartX = 0;
+            var touchEndX = 0;
+            slider.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            slider.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                var diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) next(); else prev();
+                    startAutoPlay();
+                }
+            }, { passive: true });
+        })();
+
+        // Initial caption
+        setTimeout(function() {
+            caption.classList.add('visible');
+        }, 300);
+
+        // Start
+        startAutoPlay();
+    })();
     </script>
 </body>
 </html>
