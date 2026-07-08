@@ -55,7 +55,6 @@
                 display: none;
             }
         }
-        /* Details marker hide for cross-browser support */
         details > summary {
             list-style: none;
         }
@@ -115,7 +114,6 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <!-- Animasyonlu Menü Alanı -->
                     <div id="mobileMenu" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0">
                         <div class="pb-4">
                             <a href="#" class="block py-3 border-b hover:text-primary transition-colors">TARİHÇE</a>
@@ -151,22 +149,14 @@
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-white">
-        <!-- Masaüstü Görseli -->
-        <img src="https://madobeyaziciftligi.com/Data/EditorFiles/yasarpastane/int2.png" 
-             alt="Yaşar Pastanesi" 
-             class="hidden md:block w-full h-auto opacity-80">
+        <div class="absolute top-6 left-0 w-full text-center z-20 px-4 md:hidden"></div>
+
+        <picture>
+    <source media="(min-width: 672px)" srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/9c/84/24/yasar-pastanesi.jpg">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CvKQilei_obWTib3ryaY1nYLuxl60Awtfi1RRHrLZA&s=10" 
+         class="w-full h-[200px] md:h-[400px] object-cover opacity-90">
+</picture>
         
-        <!-- Mobil Görseli ve Yazısı -->
-        <div class="block md:hidden relative">
-            <div class="absolute top-6 left-0 w-full text-center z-20 px-4">
-                <h2 class="text-2xl font-display font-bold italic text-secondary drop-shadow-md">
-                    Her dondurma dondurma değildir.
-                </h2>
-            </div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CvKQilei_obWTib3ryaY1nYLuxl60Awtfi1RRHrLZA&s=10" 
-                 alt="Yaşar Pastanesi Mobile" 
-                 class="w-full h-auto opacity-80">
-        </div>
         <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
     </section>
 
@@ -266,56 +256,68 @@
 
     <!-- Footer Menü -->
     <section class="bg-[#f7f2e8] py-10 sm:py-12 border-t border-b border-gray-200">
-        <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4">
+        
+        <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             
-            <!-- Masaüstü -->
-            <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div>
-                    <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
-                        <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
-                        <li><a href="#" class="hover:text-primary">Börekler</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
-                        <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
-                        <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
-                        <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
-                        <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
-                        <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
-                        <li><a href="#" class="hover:text-primary">İletişim</a></li>
-                        <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
-                        <li><a href="#" class="hover:text-primary">Sepetim</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-primary font-semibold mb-4">Üye</h3>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
-                        <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
-                    </ul>
-                </div>
-                <div class="md:col-span-3 lg:col-span-1">
-                    <h3 class="text-primary font-semibold mb-4">E-Bülten Aboneliği</h3>
-                    <p class="text-sm text-gray-700 mb-4">Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.</p>
-                    <div class="flex w-full overflow-hidden border border-gray-300 rounded bg-white">
-                        <input type="email" placeholder="E-posta adresiniz..." class="flex-1 min-w-0 px-3 py-2 text-sm outline-none text-gray-900 w-full">
-                        <button class="flex-shrink-0 bg-primary text-white px-4 hover:bg-secondary transition-colors">❯</button>
-                    </div>
-                    <h4 class="text-primary font-semibold mt-5 mb-2">Sosyal Medya</h4>
-                    <p class="text-sm text-gray-700">Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!</p>
-                </div>
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Kategoriler</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Dondurmalar</a></li>
+                    <li><a href="#" class="hover:text-primary">Tatlılar</a></li>
+                    <li><a href="#" class="hover:text-primary">Börekler</a></li>
+                </ul>
             </div>
+            
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Önemli Bilgiler</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Teslimat Koşulları</a></li>
+                    <li><a href="#" class="hover:text-primary">Üyelik Sözleşmesi</a></li>
+                    <li><a href="#" class="hover:text-primary">Satış Sözleşmesi</a></li>
+                    <li><a href="#" class="hover:text-primary">Garanti ve İade Koşulları</a></li>
+                    <li><a href="#" class="hover:text-primary">Gizlilik ve Güvenlik</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Hızlı Erişim</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Anasayfa</a></li>
+                    <li><a href="#" class="hover:text-primary">Yeni Ürünler</a></li>
+                    <li><a href="#" class="hover:text-primary">İletişim</a></li>
+                    <li><a href="#" class="hover:text-primary">İndirimdekiler</a></li>
+                    <li><a href="#" class="hover:text-primary">Sepetim</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-primary font-semibold mb-4">Üye</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li><a href="#" class="hover:text-primary">Yeni Üyelik</a></li>
+                    <li><a href="#" class="hover:text-primary">Üye Girişi</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-3 lg:col-span-1">
+                <h3 class="text-primary font-semibold mb-4">E-Bülten Aboneliği</h3>
+                <p class="text-sm text-gray-700 mb-4">Kampanya ve yeniliklerden haberdar olmak için e-bültenimize kayıt olun.</p>
+                <div class="flex w-full overflow-hidden border border-gray-300 rounded bg-white">
+                    <input type="email" placeholder="E-posta adresiniz..." class="flex-1 min-w-0 px-3 py-2 text-sm outline-none text-gray-900 w-full">
+                    <button class="flex-shrink-0 bg-primary text-white px-4 hover:bg-secondary transition-colors">❯</button>
+                </div>
+                
+                <h4 class="mt-8 mb-2">
+                    <a href="#" class="text-primary font-semibold transition-colors duration-300">
+                        Sosyal Medya
+                    </a>
+                </h4>
+                <p class="text-sm text-gray-700">Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
             <!-- Mobil -->
             <div class="md:hidden">
@@ -381,7 +383,13 @@
                             <input type="email" placeholder="E-posta adresiniz..." class="flex-1 min-w-0 px-3 py-2 text-sm outline-none w-full text-gray-900">
                             <button class="flex-shrink-0 bg-primary text-white px-5 hover:bg-secondary transition-colors">❯</button>
                         </div>
-                        <h4 class="text-primary font-semibold mt-5 mb-2">Sosyal Medya</h4>
+                        
+                        <h4 class="mt-5 mb-2">
+                            <a href="#" class="text-primary font-semibold transition-colors duration-300">
+                                 Sosyal Medya
+                            </a>
+                        </h4>
+                        
                         <p class="text-sm text-gray-700">Sosyal medyaya özel indirim ve kampanyalardan ilk sen haberdar ol, fırsatları yakala!</p>
                     </div>
                 </details>
@@ -389,7 +397,6 @@
         </div>
     </section>
 
-    <!-- Bankalar ve T-Soft Footer -->
     <footer class="bg-white pt-8 pb-6 border-t border-gray-200">
         <div class="container mx-auto px-4 text-center">
             
@@ -405,7 +412,7 @@
                 <a href="http://www.tsoft.com.tr" target="_blank" title="T-Soft E-Ticaret Sistemleri" class="hover:text-primary transition-colors duration-300">
                     <span class="text-primary">T</span>-Soft
                 </a>
-                <a>E-Ticaret Sistemleri ile Hazırlanmıştır.</a>
+                E-Ticaret Sistemleri ile Hazırlanmıştır.
             </div>
 
         </div>
